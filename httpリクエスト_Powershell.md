@@ -1,3 +1,4 @@
+```
 While ($True) {
 date;
 $res = $null
@@ -7,3 +8,4 @@ $res.StatusDescription
 echo ---
 Sleep 1
 }
+```
