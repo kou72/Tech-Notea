@@ -30,9 +30,9 @@ ssmtpとは簡易にメールを送信できるソフトウェアです。
 
 ### 編集手順
 
-対象ファイルを直接書き換えることは非推奨であるため、tmshコマンドを利用して編集します。
-`sys outbound-smtp` がファイルと対応するComponentsです。
-以下のように編集します。
+対象ファイルを直接書き換えることは非推奨であるため、tmshコマンドを利用して編集します。  
+`sys outbound-smtp` がファイルと対応するComponentsです。  
+以下のように編集します。  
 
 ```
 config # tmsh
@@ -77,7 +77,7 @@ alert BIGIP_MCPD_MCPDERR_POOL_MEMBER_MON_STATUS {
 - `fromaddress` 送信元とするメールアドレスです。
 - `body` メールの内容です。自由に記述できます。
 
-SNMPとしてのアラート概要はメールのタイトルとして記述されます。
+SNMPとしてのアラート概要はメールのタイトルとして記述されます。  
 トラップの詳細が知りたい場合はMIBファイル(/usr/share/snmp/mibs/F5-BIGIP-COMMON-MIB.txt.)を参照します。
 
 
