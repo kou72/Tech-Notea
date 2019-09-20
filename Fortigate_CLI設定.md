@@ -52,14 +52,18 @@ end
 
 # 手動シグネチャアップデート(デバッグ取得)
 
-```
 アップデート用デバック開始
+```
 diag debug enable
 diag debug application update 255
+```
 
 上記設定後、手動アップデート
+```
 exec update-now
+```
 
 デバック終了
+```
 diag debug enable 
 ```
