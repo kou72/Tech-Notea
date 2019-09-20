@@ -38,6 +38,30 @@ config system ha
 end
 ```
 
+# MGMTポートでポーリング
+
+http://veracosta.hateblo.jp/entry/2016/02/02/170545
+
+set ha-direct enableの設定が必要
+```
+# show system snmp community
+config system snmp community
+    edit 1
+        set name "public"
+        config hosts
+            edit 1
+                set ha-direct enable
+                set host-type query
+            next
+        end
+        set query-v1-status disable
+        set trap-v1-status disable
+        set trap-v2c-status disable
+        set events XXXX
+    next
+end
+```
+
 # Proxy経由でシグネチャアップデート
 
 https://tec-world.networld.co.jp/faq/show/2371
