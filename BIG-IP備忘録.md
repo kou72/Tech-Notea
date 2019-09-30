@@ -19,7 +19,7 @@ https://alpha-netzilla.blogspot.com/2011/07/big-ip.html
 
 # Traffic-group
 
-`IPアドレスに紐づく`、バランシングするためのグループ  
+`FloatingするIPアドレス(Floating IP と Virtual Server)に紐づく`、バランシングするためのグループ  
 Traffic-groupごとに、どの筐体をActiveとするか決めることが出来る  
 Active-Standby構成の場合は、必然的にTraffic-groupは1つになる  
 
