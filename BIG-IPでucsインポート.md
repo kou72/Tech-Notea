@@ -3,7 +3,7 @@
 
 ## 0.基本手順
 STEP1 : UCSファイルのインポート (新しい筐体の /var/local/ucs にファイルをコピー)  
-STEP2 : Masterキーを上書き
+STEP2 : Masterキーを上書き  
 `[root]# f5mku -r <key_value>`  
 STEP3 : ホスト名の変更 (UCSファイルに含まれるホスト名に合わせる)  
 `(tmos)# modify sys global-settings hostname <ホスト名>`  
