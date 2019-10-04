@@ -3,11 +3,13 @@
 
 ## 0.基本手順
 STEP1 : UCSファイルのインポート (新しい筐体の /var/local/ucs にファイルをコピー)  
-STEP2 : ホスト名の変更 (UCSファイルに含まれるホスト名に合わせる)  
+STEP2 : Masterキーを上書き
+`[root]# f5mku -r <key_value>`  
+STEP3 : ホスト名の変更 (UCSファイルに含まれるホスト名に合わせる)  
 `(tmos)# modify sys global-settings hostname <ホスト名>`  
-STEP3 : UCSファイルの読み込み  
+STEP4 : UCSファイルの読み込み  
 `(tmos)# load sys ucs <UCSファイル名> no-license`  
-STEP4 : エラーが無いことを確認  
+STEP5 : エラーが無いことを確認  
 `(tmos)# tmsh save sys config`  
 `(tmos)# tmsh load sys config`  
 
