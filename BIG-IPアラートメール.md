@@ -57,7 +57,7 @@ BIG-IPではSNMPのトラップ項目として設定されている項目に、�
 
 ### 編集手順
 
-/etc/alertd/alert.conf から必要な項目を選び、 /config/user_alert.conf にコピーした上で編集します。
+/etc/alertd/alert.conf から必要な項目を選び、 /config/user_alert.conf にコピーした上で編集します。  
 トラップの処理は /config/user_alert.conf -> /etc/alertd/alert.conf の順で行われるようです。
 
 プールが落ちたことを検知して、メールを飛ばす設定は以下になります。
