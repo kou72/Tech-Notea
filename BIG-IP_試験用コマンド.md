@@ -22,4 +22,10 @@ kill 0000
 watch tmsh show connection
 ```
 
+# RSTのログを表示
+
+```
+modify /sys db tm.rstcause.log value enable
+modify /sys db tm.rstcause.pkt value enable
+```
 
