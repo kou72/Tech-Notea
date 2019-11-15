@@ -1,0 +1,90 @@
+# master keyを合わせる
+
+UCS作成側
+```
+[root]# f5mku -K
+```
+
+リストア側
+```
+[root]# f5mku -r <key_value>
+```
+
+# ucsをロードする
+
+## GUIかFTP等を用いてucsをアップロードする  
+
+- GUIの場合  
+```
+GUI > System > Archives > Uploadよりアップロード
+```  
+
+- FTP等を利用する場合
+```
+cd /var/local/ucs/
+ftp
+ftp> "ftp server ip address"
+ftp> "username"
+ftp> "password"
+ftp> get ucs_name.ucs
+ftp> quit
+cd /var/config
+```
+
+## ホスト名を揃える
+```
+tmsh modify sys global-settings hostname <ホスト名>
+```
+
+## ロード
+```
+tmsh load sys ucs <UCSファイル名> no-license no-platform-check
+```
+
+# bigip_base.config からtrunk設定を削除
+
+VE版はtrunkが組めないので、その部分だけ削除  
+
+- /config/bigip_base.conf
+```
+net stp /Common/cist {
+    trunks {
+        external_trunk {
+            external-path-cost 20000
+            internal-path-cost 20000
+        }
+    }
+    vlans {
+        /Common/external
+    }
+}
+net stp-globals {
+    config-name 00-01-D7-E4-47-80
+}
+net trunk external_trunk {
+    interfaces {
+        1.1
+        1.2
+    }
+}
+net vlan /Common/external {
+    interfaces {
+        external_trunk { }
+    }
+    tag 4094
+}
+```
+↓
+```
+net stp-globals {
+    config-name 00-01-D7-E4-47-80
+}
+net vlan /Common/external {
+    tag 4094
+}
+```
+
+# config再読み込み
+```
+tmsh load sys config
+```
