@@ -46,8 +46,8 @@ tmsh load sys ucs <UCSファイル名> no-license no-platform-check
 VE版はtrunkが組めないので、その部分だけ削除  
 - net stp 全削除
 - net trunk 全削除
-- net vlan インターフェース部分削除  
-  
+- net vlan インターフェース部分削除
+---
 - /config/bigip_base.conf
 ```
 net stp /Common/cist {
