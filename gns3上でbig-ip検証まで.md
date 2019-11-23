@@ -22,15 +22,9 @@ Preference > GNS3 VMをvmwareでenable
 
 # Appliancesインストール
 
-GNS3 Appliances：https://www.gns3.com/marketplace/appliances  
-
-## BIG-IPインストール
-
-https://www.gns3.com/marketplace/appliance/f5-big-ip
-
-## Alpine Linux
-
-https://www.gns3.com/marketplace/appliance/alpine-linux-2
+GNS3 Appliances ホーム：https://www.gns3.com/marketplace/appliances  
+BIG-IPインストール：https://www.gns3.com/marketplace/appliance/f5-big-ip  
+Alpine Linux：https://www.gns3.com/marketplace/appliance/alpine-linux-2  
 
 ## Import Appliances
 
