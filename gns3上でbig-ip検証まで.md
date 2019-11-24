@@ -40,7 +40,16 @@ GNS3内の案内に従って、必要なOS等をDownload > Import
 
 alpine > config > edit からipアドレス設定（dhcpで取得）  
 
+- /etc/network/interfaces
+```
+auto eth0
+iface eth0 inet dhcp
+```
+
 再起動  
+
+参考  
+https://wiki.alpinelinux.org/wiki/Configure_Networking  
 
 ## http serverセットアップ
 
