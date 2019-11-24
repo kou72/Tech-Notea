@@ -74,3 +74,20 @@ rc-service lighttpd start
 参考  
 https://blog.adachin.me/archives/4177  
 https://wiki.alpinelinux.org/wiki/Lighttpd
+
+## sshトンネル
+
+local環境を直接gns3内部に繋ぐことはできない  
+vmwareのgns3 serverを踏み台にして、  
+gns3内部のサーバーに向けてsshポートフォワーディングを行う。  
+
+- local mac
+```
+ssh -L localhost:8888:<alpineのip>:80 gns3@<gns3のip>
+```
+
+参考  
+
+http://www.lifewithunix.jp/notes/2018/10/08/maos-snow-leopard-ssh-local-port-forwarding/  
+http://www.lifewithunix.jp/notes/2018/10/08/maos-snow-leopard-ssh-local-port-forwarding/  
+
