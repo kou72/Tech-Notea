@@ -33,6 +33,15 @@ GNS3内の案内に従って、必要なOS等をDownload > Import
 
 # HTTPサーバー接続まで
 
+## ネットワーク
+
+以下のように接続  
+```alpine - l2sw - nat```
+
+alpine > config > edit からipアドレス設定（dhcpで取得）  
+
+再起動  
+
 ## http serverセットアップ
 
 Alpine立ち上げ、コンソールに接続  
@@ -56,6 +65,3 @@ rc-service lighttpd start
 参考  
 https://blog.adachin.me/archives/4177  
 https://wiki.alpinelinux.org/wiki/Lighttpd
-
-
-
