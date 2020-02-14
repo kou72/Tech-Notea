@@ -80,6 +80,10 @@ apboot>
 ```
 apboot> factory_reset
 ```
+OSが削除されない場合は clear コマンドで削除します。
+```
+apboot> clear os 0
+```
 
 #### 3.setenv
 
