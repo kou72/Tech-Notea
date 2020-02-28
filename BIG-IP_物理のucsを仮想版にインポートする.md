@@ -87,6 +87,33 @@ net vlan /Common/external {
 }
 ```
 
+# global-settings mgmt-dhcp をdisabled に変更
+
+mgmt-dhcp がenableのまま管理IPを設定するよう記述されていると以下のエラーが出る 
+
+```
+Conflicting configuration. Management-ip can't be deleted manually while DHCP is enabled. Within tmsh run 'modify sys global-settings mgmt-dhcp disabled' before manually changing the management-ip.
+```
+
+configを手動で書き換える 
+
+- /config/bigip_base.conf
+```
+sys global-settings {
+    gui-setup disabled
+    hostname bigip.host
+}
+```
+↓
+```
+sys global-settings {
+    gui-setup disabled
+    hostname bigip.host
+    mgmt-dhcp disabled
+}
+```
+
+
 # config再読み込み
 ```
 tmsh load sys config
