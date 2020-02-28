@@ -23,7 +23,7 @@ GUI > System > Archives > Uploadよりアップロード
 ```
 cd /var/local/ucs/
 ftp
-ftp> <ftp server ip address>
+ftp> open <ftp server ip address>
 ftp> <username>
 ftp> <password>
 ftp> get ucs_name.ucs
