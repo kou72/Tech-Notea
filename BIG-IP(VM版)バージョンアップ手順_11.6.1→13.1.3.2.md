@@ -31,7 +31,7 @@ System > Software Management > Install > 「DH1.○」の○にあたる文字or
 
 ---
 
-ストレージ容量が足りずに場合、以下のエラーが出る。  
+インストールに必要なストレージ容量が足りない場合、以下のエラーが出る。  
 
 ```failed (Disk full (volume group). See SOL#10636)```　　
 
