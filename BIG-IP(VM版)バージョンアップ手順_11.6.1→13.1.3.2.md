@@ -39,7 +39,7 @@ System > Software Management > Install > 「DH1.○」の○にあたる文字or
 
  - /var/log/liveinstall.log
 
-検索すると以下のバグに当たって戸惑う。  
+上記の情報で検索すると以下のバグに当たり、解決策も無く戸惑うことになる。  
 https://support.f5.com/csp/article/K16048  
 
 ただし今回は、単純にストレージ容量を増やすだけで解決した。  
