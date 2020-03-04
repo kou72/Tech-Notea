@@ -1,6 +1,7 @@
 # ストレージ領域を拡張
 
-Esxi管理画面「編集」からハードディスク容量増加  
+Esxi管理画面「編集」からハードディスク容量を40Gまで増加  
+https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ve-setup-vmware-esxi-13-0-0/2.html  
 BIG-IPをreboot  
 
 # BIG-IPのディスク領域拡張
