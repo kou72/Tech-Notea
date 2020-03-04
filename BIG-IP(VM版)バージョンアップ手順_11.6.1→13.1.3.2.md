@@ -5,7 +5,10 @@ BIG-IPをreboot
 
 # BIG-IPのディスク領域拡張
 
-https://support.f5.com/csp/article/K14952 
+https://support.f5.com/csp/article/K14952  
+
+※ディスク容量が足りなくても、コマンド自体は通ってしまうので、  
+　拡張分のストレージがきちんと設けられているか要確認
 
 # isoインポート
 
@@ -28,5 +31,18 @@ System > Software Management > Install > 「DH1.○」の○にあたる文字or
 
 ---
 
-以下のバグに当たった  
+ストレージ容量が足りずに場合、以下のエラーが出る。  
+
+```failed (Disk full (volume group). See SOL#10636)```　　
+
+以下に詳細なログが保存されている。  
+
+ - /var/log/liveinstall.log
+
+検索すると以下のバグに当たって戸惑う。  
 https://support.f5.com/csp/article/K16048  
+
+ただし今回は、単純にストレージ容量を増やすだけで解決した。  
+
+
+
