@@ -26,7 +26,11 @@ hwclock -w
 ## 結線
 1号機と2号機を1番ポートで結線  
 
-## (device)name, hostname を確認
+## コマンド入力
+devicename, hostnameを任意の値でキッティングしたパターン  
+devicename, hostnameは適宜読み替えて入力  
+
+### (device)name, hostname を確認
 - device name
 ```
 tmsh show cm device | grep Device
@@ -36,13 +40,13 @@ tmsh show cm device | grep Device
 tmsh show cm device | grep Hostname
 ```
 
-## HA用のVLAN作成
+### HA用のVLAN作成
 - 1,2号機共通  
 ```
 tmsh create net vlan VLN-HA interfaces add { 1.1 { } }
 ```
 
-## HA用アドレス付与
+### HA用アドレス付与
 - 1号機  
 ```
 tmsh create net self HA-IP { address 1.1.1.1/24 allow-service all traffic-group traffic-group-local-only vlan VLN-HA }
@@ -53,7 +57,7 @@ tmsh create net self HA-IP { address 1.1.1.1/24 allow-service all traffic-group 
 tmsh create net self HA-IP { address 1.1.1.2/24 allow-service all traffic-group traffic-group-local-only vlan VLN-HA }
 ```
 
-## Device Connectivity設定
+### Device Connectivity設定
 - 1号機  
 ```
 tmsh modify cm device devicename.local configsync-ip 1.1.1.1
@@ -68,11 +72,25 @@ tmsh modify cm device devicename.local unicast-address { { effective-ip 1.1.1.2 
 tmsh modify cm device devicename.local mirror-ip 1.1.1.2
 ```
 
-## 同期
+### 同期
 - 1号機のみ入力  
 ```
 tmsh run cm add-to-trust device 1.1.1.2 username admin password admin device-name devicename.local
 ```
+
+## コマンド入力(完全流し込み)
+以下のパラメータでキッティング  
+- 1号機
+   - IP Address : `192.168.1.247`
+   - Network Mask : `255.255.255.0`
+   - Host Name : `BIG-IP850.local`
+   - Admin Password : `admin`
+
+- 2号機
+   - IP Address : `192.168.1.246`
+   - Network Mask : `255.255.255.0`
+   - Host Name : `BIG-IP850.local`
+   - Admin Password : `admin`
 
 2号機に以下を流し込み  
 ```
