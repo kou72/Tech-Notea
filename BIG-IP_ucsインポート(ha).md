@@ -75,7 +75,10 @@ tmsh modify cm device devicename.local mirror-ip 1.1.1.2
 ### 同期
 - 1号機のみ入力  
 ```
-tmsh run cm add-to-trust device 1.1.1.2 username admin password admin device-name devicename.local
+# ver14
+tmsh run cm add-to-trust device 1.1.1.2 username admin password admin device-name devicename2.local
+# ver13
+tmsh modify cm trust-domain Root ca-devices add { 1.1.1.2 } username admin password admin name devicename2.local
 ```
 
 ## コマンド入力(完全流し込み)
@@ -116,6 +119,7 @@ tmsh modify cm device BIG-IP850.local mirror-ip 192.168.2.1
 tmsh mv cm device BIG-IP850.local big-ip1.local
 
 tmsh run cm add-to-trust device 192.168.2.2 username admin password admin device-name big-ip2.local
+# tmsh modify cm trust-domain Root ca-devices add { 192.168.2.2 } username admin password admin name big-ip2.local
 ```
 
 # masterキーを合わせる
