@@ -22,8 +22,58 @@ hwclock -w
 ```
 
 # haを組ませる
+
+## 結線
 1号機と2号機を1番ポートで結線  
-  
+
+## (device)name, hostname を確認
+- device name
+```
+tmsh show cm device | grep Device
+```
+- host name
+```
+tmsh show cm device | grep Hostname
+```
+
+## HA用のVLAN作成
+- 1,2号機共通  
+```
+tmsh create net vlan VLN-HA interfaces add { 1.1 { } }
+```
+
+## HA用アドレス付与
+- 1号機  
+```
+tmsh create net self HA-IP { address 1.1.1.1/24 allow-service all traffic-group traffic-group-local-only vlan VLN-HA }
+```
+
+- 2号機  
+```
+tmsh create net self HA-IP { address 1.1.1.2/24 allow-service all traffic-group traffic-group-local-only vlan VLN-HA }
+```
+
+## Device Connectivity設定
+- 1号機  
+```
+tmsh modify cm device devicename.local configsync-ip 1.1.1.1
+tmsh modify cm device devicename.local unicast-address { { effective-ip 1.1.1.1 effective-port 1026 ip 1.1.1.1 }}
+tmsh modify cm device devicename.local mirror-ip 1.1.1.1
+```
+
+- 2号機  
+```
+tmsh modify cm device devicename.local configsync-ip 1.1.1.2
+tmsh modify cm device devicename.local unicast-address { { effective-ip 1.1.1.2 effective-port 1026 ip 1.1.1.2 }}
+tmsh modify cm device devicename.local mirror-ip 1.1.1.2
+```
+
+## 同期
+- 1号機のみ入力  
+```
+tmsh run cm add-to-trust device 1.1.1.2 username admin password admin device-name devicename.local
+```
+
 2号機に以下を流し込み  
 ```
 tmsh modify sys global-settings hostname big-ip2.local
