@@ -99,7 +99,7 @@ tmsh modify cm trust-domain Root ca-devices add { 1.1.1.2 } username admin passw
 ```
 tmsh modify sys global-settings hostname big-ip2.local
 tmsh create sys management-ip 192.168.1.246/24
-tmsh create net vlan VLN-HA interfaces add { 1.0 { } } tag 10
+tmsh create net vlan VLN-HA interfaces add { 1.0 { } }
 tmsh create net self HA-IP { address 192.168.2.2/30 allow-service all traffic-group traffic-group-local-only vlan VLN-HA }
 tmsh modify cm device BIG-IP850.local configsync-ip 192.168.2.2
 tmsh modify cm device BIG-IP850.local unicast-address { { effective-ip 192.168.2.2 effective-port 1026 ip 192.168.2.2 }}
@@ -111,7 +111,7 @@ tmsh mv cm device BIG-IP850.local big-ip2.local
 ```
 tmsh modify sys global-settings hostname big-ip1.local
 tmsh create sys management-ip 192.168.1.247/24
-tmsh create net vlan VLN-HA interfaces add { 1.0 { } } tag 10
+tmsh create net vlan VLN-HA interfaces add { 1.0 { } }
 tmsh create net self HA-IP { address 192.168.2.1/30 allow-service all traffic-group traffic-group-local-only vlan VLN-HA }
 tmsh modify cm device BIG-IP850.local configsync-ip 192.168.2.1
 tmsh modify cm device BIG-IP850.local unicast-address { { effective-ip 192.168.2.1 effective-port 1026 ip 192.168.2.1 }}
