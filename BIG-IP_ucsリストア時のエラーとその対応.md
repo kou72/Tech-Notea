@@ -37,3 +37,17 @@ net interface 1.1 {
 Unexpected Error: Loading configuration process failed.
 ```
 
+## master key が変更できない
+```
+[root@test:Active:In Sync (Trust Domain Only)] config # f5mku -r 000000000000xXX==
+Rekeying Master Key...
+Error trying to rekey: 01071769:3: Decryption of the field (secret) for object (/Common/sctp) failed.
+```
+直前に以下の操作をしていたのが原因と思われる  
+- HAを組む
+- master keyを変更する(1号機,2号機)
+- 1号機のみをkey変更前にリストア→再設定
+- 改めてHAを組んだ時にSyncによって2号機のmaster keyが変更前に上書きされる
+- 2号機内部でmaster keyの差分が生まれた？
+
+2号機も再リストア→再設定することで解決
