@@ -112,6 +112,9 @@ sys global-settings {
 Unexpected Error: Loading configuration process failed.
 ```
 
+リストア後のipを事前の機器で使わないよう設定変更  
+(この時は一度HA関連の設定を全て無効にし、1.1.1.1で設定していたのHA-IPを10.1.1.1に変更した。)
+
 ## master key が変更できない
 ```
 [root@test:Active:In Sync (Trust Domain Only)] config # f5mku -r 000000000000xXX==
@@ -126,3 +129,8 @@ Error trying to rekey: 01071769:3: Decryption of the field (secret) for object (
 - 2号機内部でmaster keyの差分が生まれた？
 
 2号機も再リストア→再設定することで解決
+
+## Interface のステータスが UNINITIALIZED となっておりupしない
+
+Esxiで設定されているアダプタタイプが「VMXNET3」であることが原因。  
+一度電源を落とし、「E1000」に変更することで解決。  
