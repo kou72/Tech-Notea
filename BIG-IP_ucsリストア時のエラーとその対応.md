@@ -130,6 +130,6 @@ Error trying to rekey: 01071769:3: Decryption of the field (secret) for object (
 
 2号機も再リストア→再設定することで解決
 
-## Interface のステータスが UNINITIALIZED となっておりupしない
+
 
 
