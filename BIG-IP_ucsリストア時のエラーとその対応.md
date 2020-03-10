@@ -132,5 +132,4 @@ Error trying to rekey: 01071769:3: Decryption of the field (secret) for object (
 
 ## Interface のステータスが UNINITIALIZED となっておりupしない
 
-Esxiで設定されているアダプタタイプが「VMXNET3」であることが原因。  
-一度電源を落とし、「E1000」に変更することで解決。  
+
