@@ -1,5 +1,9 @@
 # BIG-IP_ucsリストア時のエラーとその対応
 
+- /config/bigip_base.conf  
+
+を変更
+
 ## 基本情報
 
 物理版ucs -> vm版  
