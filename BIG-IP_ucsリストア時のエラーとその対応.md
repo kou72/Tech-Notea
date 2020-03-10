@@ -34,6 +34,77 @@ net interface 1.1 {
 }
 ```
 
+## trunk port
+```
+01070307:3: Invalid interface 1.7
+Unexpected Error: Loading configuration process failed.
+```
+
+trunkの記述を削除
+```
+net stp /Common/cist {
+    trunks {
+        external_trunk {
+            external-path-cost 20000
+            internal-path-cost 20000
+        }
+    }
+    vlans {
+        /Common/external
+    }
+}
+net stp-globals {
+    config-name 00-01-D7-E4-47-80
+}
+net trunk external_trunk {
+    interfaces {
+        1.1
+        1.2
+    }
+}
+net vlan /Common/external {
+    interfaces {
+        external_trunk { }
+    }
+    tag 4094
+}
+```
+↓
+```
+net stp-globals {
+    config-name 00-01-D7-E4-47-80
+}
+net vlan /Common/external {
+    tag 4094
+}
+```
+
+## global-settings mgmt-dhcp をdisabled に変更
+
+mgmt-dhcp がenableのまま管理IPを設定するよう記述されていると以下のエラーが出る 
+
+```
+Conflicting configuration. Management-ip can't be deleted manually while DHCP is enabled. Within tmsh run 'modify sys global-settings mgmt-dhcp disabled' before manually changing the management-ip.
+```
+
+configを手動で書き換える 
+
+- /config/bigip_base.conf
+```
+sys global-settings {
+    gui-setup disabled
+    hostname bigip.host
+}
+```
+↓
+```
+sys global-settings {
+    gui-setup disabled
+    hostname bigip.host
+    mgmt-dhcp disabled
+}
+```
+
 ## HA用の設定が重複している
 
 ```
