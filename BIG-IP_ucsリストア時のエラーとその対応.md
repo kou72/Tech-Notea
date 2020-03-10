@@ -30,7 +30,7 @@ net interface 1.1 {
 }
 ```
 
-## HA用の設定が消せない
+## HA用の設定が重複している
 
 ```
 010713b1:3: Cannot delete IP (1.1.1.1) because it is used by the system state-mirroring (Primary Mirror Address) setting.
