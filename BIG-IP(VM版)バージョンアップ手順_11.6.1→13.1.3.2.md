@@ -58,25 +58,22 @@ watch df -h
 
 ## イメージのインストール
 
-GUI  
+### VM版 ver11 → ver13 の時に発生するバグ
+
+このケースのみバグがあるので回避が必要。  
+https://cdn.f5.com/product/bugtracker/ID682174.html  
+
+Workaroundに従って指定のファイルを削除  
+```
+rm /shared/.tmi_config/global_attributes
+```
+
+### GUI  
 ```
 System > Software Management > Install > 「DH1.○」の○にあたる文字or数字を入力 > Install
 ```
 
----
 
-インストールに必要なストレージ容量が足りない場合、以下のエラーが出る。  
-
-```failed (Disk full (volume group). See SOL#10636)```　　
-
-以下に詳細なログが保存されている。  
-
- - /var/log/liveinstall.log
-
-上記の情報で検索すると以下のバグに当たり、解決策も無く戸惑うことになる。  
-https://support.f5.com/csp/article/K16048  
-
-ただし今回は、単純にストレージ容量を増やすだけで解決した。  
 
 
 
