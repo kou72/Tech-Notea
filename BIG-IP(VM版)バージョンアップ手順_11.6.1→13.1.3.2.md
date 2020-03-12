@@ -1,17 +1,36 @@
-# ストレージ領域を拡張
+# BIG-IP(VM版)バージョンアップ手順_11.6.1→13.1.3.2
+
+## バージョンアップの確認項目
+
+バージョンアップの7ステップ  
+https://devcentral.f5.com/s/articles/7-steps-checklist-before-upgrading-your-big-ip-1053  
+
+- 互換性確認
+- アップグレードパス確認
+- isoダウンロード
+- ライセンスの再アクティブ化の確認
+- iHealth Upgrade Advisor で構成の変更を確認
+- バックアップ取得
+- インストールチェックリスト確認
+
+加えて以下も確認  
+
+- アップデート先のバグ情報確認
+
+## ストレージ領域を拡張
 
 Esxi管理画面「編集」からハードディスク容量を40Gまで増加  
 https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ve-setup-vmware-esxi-13-0-0/2.html  
 BIG-IPをreboot  
 
-# BIG-IPのディスク領域拡張
+## BIG-IPのディスク領域拡張
 
 https://support.f5.com/csp/article/K14952  
 
 ※ディスク容量が足りなくても、コマンド自体は通ってしまうので、  
 　拡張分のストレージがきちんと設けられているか要確認
 
-# isoインポート
+## isoインポート
 
 GUI  
 ```
@@ -23,7 +42,7 @@ System > Software Management > Import > Import
 watch df -h
 ```
 
-# イメージのインストール
+## イメージのインストール
 
 GUI  
 ```
