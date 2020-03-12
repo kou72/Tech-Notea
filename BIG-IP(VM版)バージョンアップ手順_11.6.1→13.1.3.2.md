@@ -73,7 +73,12 @@ rm /shared/.tmi_config/global_attributes
 System > Software Management > Install > 「DH1.○」の○にあたる文字or数字を入力 > Install
 ```
 
+## バージョンアップ実施
 
+GUI  
+```
+System > Software Management > Boot Locations > HD1.2 > Install Configuration (No->Yes) > Activate
+```
 
 
 
