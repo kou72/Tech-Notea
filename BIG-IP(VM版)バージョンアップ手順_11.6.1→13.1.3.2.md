@@ -31,7 +31,7 @@ https://support.f5.com/csp/article/K14952
 　拡張分のストレージがきちんと設けられているか要確認  
  
  明確にどのくらい拡張すれば良いのか、というドキュメントは見つかっていない。  
- とりあえず例に従って3Gに拡張で足りてるっぽい。  
+ とりあえず例に従って3Gに拡張したがこれで足りてるっぽい。  
 https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ve-setup-vmware-esxi-13-1-0/4.html#guid-b869dd75-5d46-4a09-9d8c-34b5f3fc150f  
 https://techdocs.f5.com/content/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ve-setup-vmware-esxi-12-1-0/_jcr_content/pdfAttach/download/file.res/BIG-IP_Virtual_Edition_and_VMware_ESXi__Setup.pdf  
  ```
