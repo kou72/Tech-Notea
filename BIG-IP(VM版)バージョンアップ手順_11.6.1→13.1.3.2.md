@@ -87,6 +87,7 @@ System > Software Management > Boot Locations > HD1.2 > Install Configuration (N
 - 保存していたucsが全て消える
 - show sys disk で割り当てられている容量が勝手に変更される  
 ```
+# tmsh show sys disk
 Directory Name                  Current Size    New Size
 --------------                  ------------    --------
 /config                         3149824         -
@@ -96,6 +97,7 @@ Directory Name                  Current Size    New Size
 
 ↓
 
+# tmsh show sys disk
 Directory Name                  Current Size    New Size
 --------------                  ------------    --------
 /config                         503808          -
