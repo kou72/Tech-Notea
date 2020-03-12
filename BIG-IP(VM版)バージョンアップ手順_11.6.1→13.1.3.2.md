@@ -35,11 +35,11 @@ https://support.f5.com/csp/article/K14952
 https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ve-setup-vmware-esxi-13-1-0/4.html#guid-b869dd75-5d46-4a09-9d8c-34b5f3fc150f  
 https://techdocs.f5.com/content/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ve-setup-vmware-esxi-12-1-0/_jcr_content/pdfAttach/download/file.res/BIG-IP_Virtual_Edition_and_VMware_ESXi__Setup.pdf  
  ```
-modify sys disk directory /config new-size 3145740
-modify sys disk directory /shared new-size 3145740
-modify sys disk directory /var new-size 3145740
-modify sys disk directory /var/log new-size 3145740
-save sys config
+tmsh modify sys disk directory /config new-size 3145740
+tmsh modify sys disk directory /shared new-size 3145740
+tmsh modify sys disk directory /var new-size 3145740
+tmsh modify sys disk directory /var/log new-size 3145740
+tmsh save sys config
 # ↓
 # reboot
 ```
