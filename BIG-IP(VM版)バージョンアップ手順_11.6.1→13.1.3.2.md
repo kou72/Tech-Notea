@@ -80,5 +80,27 @@ GUI
 System > Software Management > Boot Locations > HD1.2 > Install Configuration (No->Yes) > Activate
 ```
 
+## バージョンアップ後
 
+バージョンアップ後に以下の事象が発生  
+
+- 保存していたucsが全て消える
+- show sys disk で割り当てられている容量が勝手に変更される  
+```
+Directory Name                  Current Size    New Size
+--------------                  ------------    --------
+/config                         3149824         -
+/shared                         3149824         -
+/var                            3149824         -
+/var/log                        3149824         -
+
+↓
+
+Directory Name                  Current Size    New Size
+--------------                  ------------    --------
+/config                         503808          -
+/shared                         3149824         -
+/var                            974848          -
+/var/log                        3149824         -
+```
 
