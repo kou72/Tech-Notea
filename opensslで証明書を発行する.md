@@ -12,7 +12,7 @@ centos 7
 [http://www.petatec.co.jp/achives/254/](http://www.petatec.co.jp/achives/254/)  
 [https://www.kakiro-web.com/linux/ssl-client.html](https://www.kakiro-web.com/linux/ssl-client.html)  
 [https://weblabo.oscasierra.net/openssl-gencert-1/](https://weblabo.oscasierra.net/openssl-gencert-1/)  
-[https://qiita.com/takech9203/items/5206f8e2572e95209bbc](https://qiita.com/takech9203/items/5206f8e2572e95209bbc)
+[https://qiita.com/takech9203/items/5206f8e2572e95209bbc](https://qiita.com/takech9203/items/5206f8e2572e95209bbc)  
 [https://qiita.com/mitzi2funk/items/602d9c5377f52cb60e54](https://qiita.com/mitzi2funk/items/602d9c5377f52cb60e54)
 
 # configファイル
