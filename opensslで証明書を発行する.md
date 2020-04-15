@@ -13,6 +13,7 @@ centos 7
 [https://www.kakiro-web.com/linux/ssl-client.html](https://www.kakiro-web.com/linux/ssl-client.html)  
 [https://weblabo.oscasierra.net/openssl-gencert-1/](https://weblabo.oscasierra.net/openssl-gencert-1/)  
 [https://qiita.com/takech9203/items/5206f8e2572e95209bbc](https://qiita.com/takech9203/items/5206f8e2572e95209bbc)
+[https://qiita.com/mitzi2funk/items/602d9c5377f52cb60e54](https://qiita.com/mitzi2funk/items/602d9c5377f52cb60e54)
 
 # configファイル
 
@@ -193,71 +194,40 @@ CA
 　 └ cakey.pem  # CA自身の秘密鍵
 ```
 
-# Server証明書
+# 証明書の発行
 
-CAの子供になるServer証明書の発行
+CAの子供になるServer証明書の発行　　
+server証明書もclient証明書も手順は同じ  
 
 - 秘密鍵作成  
 ```
-openssl genrsa -out server.key 2024
+openssl genrsa -out server.key
 ```  
 - 証明書署名要求作成  
 ```
 openssl req -new -key server.key -out server.csr
 ```  
+※CAと入力情報が同じだとエラーになるため、Common Nameに別のホスト名を入力する  
+
 - 証明書発行  
 ```
 openssl ca -in server.csr -out server.crt -keyfile private/cakey.pem -cert cacert.pem
 ```  
+x509コマンドでも証明書は発行できるが、CAとの連携ができていない模様、index.txtに何も書き込まれない。  
+おそらくcaコマンドを利用するのが正しい。  
+
 - PKCS#12形式のファイルにまとめる  
 ```
 openssl pkcs12 -export -inkey server.key -in server.crt -out server.pfx
 ```  
 - ログ  
-```
-[root@localhost CA]# ls
-cacert.pem  careq.pem  certs  crl  index.txt  newcerts  private
-[root@localhost CA]# openssl genrsa 2024 > server.key
-Generating RSA private key, 2024 bit long modulus
-........................................+++
-.+++
-e is 65537 (0x10001)
-[root@localhost CA]# ls
-cacert.pem  careq.pem  certs  crl  index.txt  newcerts  private  server.key
-[root@localhost CA]# openssl req -new -key server.key > server.csr
-You are about to be asked to enter information that will be incorporated
-into your certificate request.
-What you are about to enter is what is called a Distinguished Name or a DN.
-There are quite a few fields but you can leave some blank
-For some fields there will be a default value,
-If you enter '.', the field will be left blank.
------
-Country Name (2 letter code) [JP]:
-State or Province Name (full name) [Tokyo]:
-Locality Name (eg, city) [Osaki]:
-Organization Name (eg, company) [CTC]:
-Organizational Unit Name (eg, section) []:
-Common Name (eg, your name or your server's hostname) []:
-Email Address []:
-Please enter the following 'extra' attributes
-to be sent with your certificate request
-A challenge password []:
-An optional company name []:
-[root@localhost CA]#
-[root@localhost CA]#
-[root@localhost CA]# ls
-cacert.pem  careq.pem  certs  crl  index.txt  newcerts  private  server.csr  server.key
-[root@localhost CA]# openssl x509 -req -days 3650 -signkey private/cakey.pem < server.csr > server.crt
-Signature ok
-subject=/C=JP/ST=Tokyo/L=Osaki/O=CTC
-Getting Private key
-Enter pass phrase for private/cakey.pem:
-[root@localhost CA]#
-[root@localhost CA]#
-[root@localhost CA]# ls
-cacert.pem  careq.pem  certs  crl  index.txt  newcerts  private  server.crt  server.csr  server.key
-```
 
-## クライアント証明書
+- 証明書の失効
+```
+openssl ca -revoke server.crt -keyfile ca.key -cert ca.crt
+```  
 
-クライアント証明書はまた手順が異なる
+- 失効リストを作成
+```
+openssl ca -gencrl -out revoke.crl
+```
