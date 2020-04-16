@@ -120,6 +120,9 @@ index.txtとprivate/cakey.pemを削除
 でCA局を作成  
 [https://qiita.com/kobake@github/items/af0e4d27807601c1fce1](https://qiita.com/kobake@github/items/af0e4d27807601c1fce1)  
 
+- crlnumber作成  
+```echo 00 > crlnumber```  
+
 - ログ  
 ```
 [root@localhost CA]# /etc/pki/tls/misc/CA -newca
@@ -201,33 +204,37 @@ server証明書もclient証明書も手順は同じ
 
 - 秘密鍵作成  
 ```
-openssl genrsa -out server.key
+openssl genrsa -out private/server.key
 ```  
 - 証明書署名要求作成  
 ```
-openssl req -new -key server.key -out server.csr
+openssl req -new -key private/server.key -out server.csr
 ```  
 ※CAと入力情報が同じだとエラーになるため、Common Nameに別のホスト名を入力する  
 
 - 証明書発行  
 ```
-openssl ca -in server.csr -out server.crt -keyfile private/cakey.pem -cert cacert.pem
+openssl ca -in server.csr -out certs/server.crt -keyfile private/cakey.pem -cert cacert.pem
 ```  
 x509コマンドでも証明書は発行できるが、CAとの連携ができていない模様、index.txtに何も書き込まれない。  
-おそらくcaコマンドを利用するのが正しい。  
+おそらくcaコマンドを利用するのが正しい。 
+
+- 証明書署名要求削除  
+```
+rm server.csr
+```  
 
 - PKCS#12形式のファイルにまとめる  
 ```
-openssl pkcs12 -export -inkey server.key -in server.crt -out server.pfx
+openssl pkcs12 -export -inkey private/server.key -in certs/server.crt -out server.pfx
 ```  
 
 - 証明書の失効
 ```
-openssl ca -revoke server.crt -keyfile private/cakey.pem -cert cacert.pem
+openssl ca -revoke certs/server.crt -keyfile private/cakey.pem -cert cacert.pem
 ```  
 
 - 失効リストを作成
 ```
-echo '00' > crlnumber
-openssl ca -gencrl -out revoke.crl
+openssl ca -gencrl -out crl/revoke.crl
 ```
