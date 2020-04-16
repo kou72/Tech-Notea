@@ -229,5 +229,6 @@ openssl ca -revoke server.crt -keyfile private/cakey.pem -cert cacert.pem
 
 - 失効リストを作成
 ```
+echo '00' > crlnumber
 openssl ca -gencrl -out revoke.crl
 ```
