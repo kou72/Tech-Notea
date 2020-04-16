@@ -220,7 +220,6 @@ x509コマンドでも証明書は発行できるが、CAとの連携ができ�
 ```
 openssl pkcs12 -export -inkey server.key -in server.crt -out server.pfx
 ```  
-- ログ  
 
 - 証明書の失効
 ```
