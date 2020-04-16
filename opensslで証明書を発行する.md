@@ -120,70 +120,6 @@ index.txtとprivate/cakey.pemを削除
 でCA局を作成  
 [https://qiita.com/kobake@github/items/af0e4d27807601c1fce1](https://qiita.com/kobake@github/items/af0e4d27807601c1fce1)  
 
-- crlnumber作成  
-```echo 00 > crlnumber```  
-
-- ログ  
-```
-[root@localhost CA]# /etc/pki/tls/misc/CA -newca
-CA certificate filename (or enter to create)
-
-Making CA certificate ...
-Generating a 2048 bit RSA private key
-..+++
-......+++
-writing new private key to '/etc/pki/CA/private/./cakey.pem'
-Enter PEM pass phrase:
-Verifying - Enter PEM pass phrase:
------
-You are about to be asked to enter information that will be incorporated
-into your certificate request.
-What you are about to enter is what is called a Distinguished Name or a DN.
-There are quite a few fields but you can leave some blank
-For some fields there will be a default value,
-If you enter '.', the field will be left blank.
------
-Country Name (2 letter code) [JP]:
-State or Province Name (full name) [Tokyo]:
-Locality Name (eg, city) [Osaki]:
-Organization Name (eg, company) [CTC]:
-Organizational Unit Name (eg, section) []:
-Common Name (eg, your name or your server's hostname) [host]:
-Email Address []:
-
-Please enter the following 'extra' attributes
-to be sent with your certificate request
-A challenge password []:
-An optional company name []:
-Using configuration from /etc/pki/tls/openssl.cnf
-Enter pass phrase for /etc/pki/CA/private/./cakey.pem:
-Check that the request matches the signature
-Signature ok
-Certificate Details:
-        Serial Number:
-            b1:d5:12:83:89:1a:ba:bf
-        Validity
-            Not Before: Apr 15 08:53:03 2020 GMT
-            Not After : Apr 15 08:53:03 2023 GMT
-        Subject:
-            countryName               = JP
-            stateOrProvinceName       = Tokyo
-            organizationName          = CTC
-            commonName                = host
-        X509v3 extensions:
-            X509v3 Subject Key Identifier:
-                A6:8F:E9:77:58:B2:8F:30:9A:21:DD:EE:01:7E:31:C5:8C:91:95:2B
-            X509v3 Authority Key Identifier:
-                keyid:A6:8F:E9:77:58:B2:8F:30:9A:21:DD:EE:01:7E:31:C5:8C:91:95:2B
-
-            X509v3 Basic Constraints:
-                CA:TRUE
-Certificate is to be certified until Apr 15 08:53:03 2023 GMT (1095 days)
-
-Write out database with 1 new entries
-Data Base Updated
-```
-
 これで以下のディレクトリができる  
 ```
 CA
@@ -195,7 +131,12 @@ CA
 ├ newcerts/ #発行証明書の保存ディレクトリ
 └ private/
 　 └ cakey.pem  # CA自身の秘密鍵
+```  
+
+- crlnumber作成  
 ```
+echo 00 > crlnumber
+```  
 
 # 証明書の発行
 
