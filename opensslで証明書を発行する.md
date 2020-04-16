@@ -224,7 +224,7 @@ openssl pkcs12 -export -inkey server.key -in server.crt -out server.pfx
 
 - 証明書の失効
 ```
-openssl ca -revoke server.crt -keyfile ca.key -cert ca.crt
+openssl ca -revoke server.crt -keyfile private/cakey.pem -cert cacert.pem
 ```  
 
 - 失効リストを作成
