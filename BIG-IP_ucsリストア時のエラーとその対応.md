@@ -78,7 +78,32 @@ net vlan /Common/external {
     tag 4094
 }
 ```
-
+または
+```
+net stp-globals {
+    config-name 00-01-D7-E4-47-80
+}
+net vlan /Common/HA {
+    interfaces {
+        1.3 { }
+    }
+    sflow {
+        poll-interval-global no
+        sampling-rate-global no
+    }
+    tag 1
+}
+net vlan /Common/external {
+    interfaces {
+        1.1 { }
+    }
+    sflow {
+        poll-interval-global no
+        sampling-rate-global no
+    }
+    tag 4094
+}
+```
 ## global-settings mgmt-dhcp をdisabled に変更
 
 mgmt-dhcp がenableのまま管理IPを設定するよう記述されていると以下のエラーが出る 
@@ -142,5 +167,6 @@ This device is not operational because the loaded configuration contained errors
 
 ## LOAD
 
+```
 tmsh load sys config
-
+```
