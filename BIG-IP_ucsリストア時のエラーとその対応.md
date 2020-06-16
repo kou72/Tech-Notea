@@ -130,6 +130,17 @@ Error trying to rekey: 01071769:3: Decryption of the field (secret) for object (
 
 2号機も再リストア→再設定することで解決
 
+## licenseエラー
+```
+This device is not operational because the loaded configuration contained errors or unlicensed objects. Please adjust the configuration and/or the license, and re-license the device.
+```
 
+以下投入してlicenseの再アクティベート
+```
+ reloadlic
+```
 
+## LOAD
+
+tmsh load sys config
 
