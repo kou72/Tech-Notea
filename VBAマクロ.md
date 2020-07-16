@@ -27,8 +27,8 @@ End Sub
 
 ##### 参考
 [文字色の設定 - フォントやサイズの設定 - Excel VBA入門](https://www.officepro.jp/excelvba/cell_font/index6.html)  
-[最終行の取得（EndRows.Count）｜VBA入門](http://www.start-macro.com/55/w/s029.html)
-ブック内のすべてのワークシートで同じ処理を行う 《For Each～Next》｜Excel｜ヘルプの森](https://www.helpforest.com/excel/emv_sample/ex100001.htm)
+[最終行の取得（EndRows.Count）｜VBA入門](http://www.start-macro.com/55/w/s029.html)  
+[ブック内のすべてのワークシートで同じ処理を行う 《For Each～Next》｜Excel｜ヘルプの森](https://www.helpforest.com/excel/emv_sample/ex100001.htm)
 
 # A1を選択、シートの倍率を100%
 
