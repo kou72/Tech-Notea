@@ -56,15 +56,3 @@ Public Sub VisibleNames()
 End Sub
 ```
 
-# 名前の定義を削除する
-
-```
-Sub DeleteNames()
-　　Dim name As Name
-　　On Error Resume Next
-　　For Each name In ActiveWorkbook.Names
-　　　　name.Delete
-　　Next
-　　On Error GoTo 0
-End Sub
-```
