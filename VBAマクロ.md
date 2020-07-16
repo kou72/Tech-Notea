@@ -25,7 +25,9 @@ Next Ws
 End Sub
 ```
 
-参考：https://www.officepro.jp/excelvba/cell_font/index6.html
+#### 参考
+https://www.officepro.jp/excelvba/cell_font/index6.html
+http://www.start-macro.com/55/w/s029.html
 
 # A1を選択、シートの倍率を100%
 
@@ -58,4 +60,5 @@ Public Sub VisibleNames()
 End Sub
 ```
 
-参考：https://dev.classmethod.jp/articles/excel-delete-name/
+#### 参考
+https://dev.classmethod.jp/articles/excel-delete-name/
