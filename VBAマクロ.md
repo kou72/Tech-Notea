@@ -26,8 +26,8 @@ End Sub
 ```
 
 ##### 参考
-https://www.officepro.jp/excelvba/cell_font/index6.html  
-http://www.start-macro.com/55/w/s029.html
+[文字色の設定 - フォントやサイズの設定 - Excel VBA入門](https://www.officepro.jp/excelvba/cell_font/index6.html)  
+[最終行の取得（EndRows.Count）｜VBA入門](http://www.start-macro.com/55/w/s029.html)
 
 # A1を選択、シートの倍率を100%
 
@@ -61,4 +61,4 @@ End Sub
 ```
 
 ##### 参考
-https://dev.classmethod.jp/articles/excel-delete-name/
+[[Excel] シートで非表示になっている名前の定義を消す方法 | Developers.IO](https://dev.classmethod.jp/articles/excel-delete-name/)
