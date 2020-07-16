@@ -1,7 +1,7 @@
 # 全てのシートの赤文字を黒文字に変更する
 
 ```
-Sub color()
+Sub TextColorChange()
 
 Dim Ws As Worksheet
 For Each Ws In Worksheets
@@ -33,7 +33,7 @@ End Sub
 # A1を選択、シートの倍率を100%
 
 ```
-Sub cell()
+Sub SelectAndZoom()
 
 Dim Ws As Worksheet
 For Each Ws In Worksheets
