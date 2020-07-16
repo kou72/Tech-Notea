@@ -24,3 +24,47 @@ Next Ws
 
 End Sub
 ```
+
+# A1を選択、シートの倍率を100%
+
+```
+Sub cell()
+
+Dim Ws As Worksheet
+For Each Ws In Worksheets
+    Ws.Activate
+    
+    Cells(1, 1).Select
+    ActiveWindow.Zoom = 100
+
+Next Ws
+
+End Sub
+```
+
+# 非表示の名前の定義を表示させる
+
+```
+Public Sub VisibleNames()
+    Dim name As Object
+    For Each name In Names
+        If name.Visible = False Then
+            name.Visible = True
+        End If
+    Next
+    MsgBox "すべての名前の定義を表示しました。", vbOKOnly
+End Sub
+```
+
+# 名前の定義を削除する
+
+```
+Sub DeleteNames()
+　　Dim name As Name
+　　On Error Resume Next
+　　For Each name In ActiveWorkbook.Names
+　　　　name.Delete
+　　Next
+　　On Error GoTo 0
+End Sub
+```
