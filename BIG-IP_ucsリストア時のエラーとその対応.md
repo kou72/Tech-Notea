@@ -170,3 +170,25 @@ This device is not operational because the loaded configuration contained errors
 ```
 tmsh load sys config
 ```
+
+## リストアしたBIG-IPに対してping疎通できない
+
+EAXiとの相性問題でいくつかの設定が必要。  
+
+#### 仮想スイッチの設定を変更
+
+仮想スイッチのセキュリティ設定を変更する。  
+
+- ESXiのコンソール -> ネットワーク -> 仮想スイッチ -> 利用中の仮想スイッチを選択
+- 設定の編集 -> セキュリティ
+  - 無差別モード : 承諾
+  - MAC アドレス変更 : 承諾
+  - 偽装転送 : 承認
+  
+BIG-IP側のVLANをタグ無しへ変更する
+
+- Network -> VLANs -> 対象VLAN -> Interfaces
+  - Tagging : Untagged
+
+#### 参考
+https://devcentral.f5.com/s/question/0D51T00006i7Yw2/new-bigip-ve-not-passing-any-traffic
