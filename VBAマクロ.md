@@ -8,9 +8,10 @@ For Each Ws In Worksheets
     Ws.Activate
     
     y = Cells(Rows.Count, "A").End(xlUp).Row
-    x = 35
 
     For i = 1 To y
+        x = Cells(i, Columns.Count).End(xlToLeft).Column
+        
         For j = 1 To x
     
             If Cells(i, j).Font.ColorIndex = 3 Then
