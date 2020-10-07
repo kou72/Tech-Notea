@@ -155,3 +155,7 @@ tftpboot、reset、ケーブル抜線での再起動、などの操作でも同�
 
 この20分を回避する方法は、upgradeコマンドを使用する操作以外見つかっていません。  
 
+# upgrade
+
+https://community.arubanetworks.com/t5/Controllerless-Networks/Upgrade-IAP335-to-8-X/td-p/499286
+https://community.arubanetworks.com/t5/Controllerless-Networks/Upgrading-the-factory-default-partition-on-IAP/td-p/241004
