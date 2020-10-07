@@ -42,6 +42,7 @@ https://server-network-note.net/2020/03/centos8-set-network-ip/
 
 ```
 # status
+nmcli
 nmcli device
 # static ip
 nmcli connection modify ens192 ipv4.address 192.168.1.10/24
