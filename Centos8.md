@@ -48,7 +48,8 @@ nmcli con show ens192
 # static ip
 nmcli connection modify ens192 ipv4.address 192.168.1.10/24
 nmcli connection modify ens192 ipv4.gateway 192.168.1.1
-# nmcli connection modify ens224 ipv4.never-default yes #default gatewayではないことを明示
+# default gatewayではないことを明示
+# nmcli connection modify ens224 ipv4.never-default yes
 nmcli connection modify ens192 ipv4.dns 192.168.1.1
 nmcli connection modify ens192 ipv4.method manual
 nmcli connection down ens192
