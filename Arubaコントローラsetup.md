@@ -8,6 +8,15 @@ https://support.arubanetworks.com/
 新しいポータルサイト  
 https://asp.arubanetworks.com/
 
+# Esxiの注意点
+
+- ネットワーク アダプタ 2 - Gi0/0/0 に対応している
+- 仮想スイッチの編集が必要
+  - セキュリティ
+    - 無差別モード : 承諾
+    - MAC アドレス変更 : 承諾
+    - 偽装転送 : 承諾
+
 # 評価版ライセンス
 
 ### ライセンスマネージャ  
@@ -57,3 +66,27 @@ https://lms.arubanetworks.com/
 # APをコントローラに接続
 
 ### apboot
+```
+factory_reset
+
+mfginfo
+osinfo
+printenv
+
+setenv name HOSTNAME
+setenv ipaddr 10.1.100.1
+setenv netmask 255.255.255.0
+setenv gatewayip 10.1.100.254
+setenv master 10.1.100.100
+setenv sereverip 10.1.100.100
+
+printenv
+saveenv
+boot
+```
+
+# 参考
+
+[ArubaOS 8.x Command-Line Interface Reference Guide](https://www.arubanetworks.com/techdocs/CLI-Bank/Content/CLI%20RG/cli-home-aos.htm)
+
+
