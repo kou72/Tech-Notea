@@ -14,8 +14,6 @@ https://asp.arubanetworks.com/
 - 仮想スイッチの編集が必要
   - セキュリティ
     - 無差別モード : 承諾
-    - MAC アドレス変更 : 承諾
-    - 偽装転送 : 承諾
 
 # 評価版ライセンス
 
@@ -41,6 +39,15 @@ https://lms.arubanetworks.com/
 - 「+」
   - License Passphrase 取得
   - フォームにActivation Keyを入力 - OK
+
+### ライセンスマネージャでAOSが選択できないとき
+
+- HPE Generate Eval Registration IDsへ接続
+  - https://h10145.www1.hpe.com/license/GenerateEvalRegIDs.aspx
+- Product Line - AOS
+- Select Product(s) - JY910AAE Aruba MC-VA-1K (JP) Cntlr 1K AP E-LTU - Add product(s) - Generate
+
+処理を進めるとライセンスのメールが届く。  
 
 # Control Plane Securityの設定
 
