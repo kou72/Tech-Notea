@@ -21,7 +21,10 @@ https://asp.arubanetworks.com/
 https://lms.arubanetworks.com/
 - Licenses - Trial Licenses
 - AOS - Add New
-- 90D-MC-VA-1K-JP - Add - Create
+- ライセンスを選択 - Add - Create
+  - 90D-MM-VA-10K (JY898AAE)
+  - 90D-AP (JW472AAE)
+  - 90D-PEF (JW473AAE)
 - メールが届く
   - Order Number
   - Confirmation Number
@@ -42,12 +45,64 @@ https://lms.arubanetworks.com/
 
 ### ライセンスマネージャでAOSが選択できないとき
 
-- HPE Generate Eval Registration IDsへ接続
-  - https://h10145.www1.hpe.com/license/GenerateEvalRegIDs.aspx
-- Product Line - AOS
-- Select Product(s) - JY910AAE Aruba MC-VA-1K (JP) Cntlr 1K AP E-LTU - Add product(s) - Generate
+社内PCからだとできなかったが、新RDP環境からだとできた。
 
-処理を進めるとライセンスのメールが届く。  
+# MMからMCを操作
+
+### 対象のgroup移動
+
+- cd
+```
+(MM) [mynode] #cd #tabキー
+(MM) [mynode] #cd
+/
+/md
+/md/DC
+/md/GROUP_1
+/mm
+/mm/mynode
+MC_0        Alias for /md/DC/00:00:00:00:00:00
+MC_1     Alias for /md/GROUP_1/00:00:00:00:00:01
+<node-path>             Path of config node
+
+(MM) [mynode] #cd /md/GROUP_1
+(MM) [GROUP_1] #
+```
+
+### 編集
+
+- conf t
+```
+(MM) [GROUP_1] #configure terminal
+Enter Configuration commands, one per line. End with CNTL/Z
+
+(MM) [GROUP_1] (config) #end
+(MM) [GROUP_1] #write memory
+
+Saving Configuration...
+(MM) [GROUP_1] #
+```
+
+### showコマンド
+
+- mdconnect
+- show
+```
+(MM) [mynode] #cd MC_1
+(MM) [00:00:00:00:00:01] #mdconnect
+
+ Redirecting to Managed Device Shell
+
+(MC_1) [MDC] #show running-config
+
+...MC_1のconfig取得
+```
+
+### MCで無理やり編集
+
+- disaster-recovery on
+
+参考:https://community.arubanetworks.com/t5/日本語フォーラム/AOS8-Useful-Command-List/td-p/308589
 
 # Control Plane Securityの設定
 
