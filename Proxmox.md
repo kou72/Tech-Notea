@@ -29,7 +29,7 @@ https://pve.proxmox.com/wiki/Package_Repositories
 
 #### /usr/share/pve-manager/js/pvemanagerlib.js
 ```diff
-- if (data.status !== 'Active') {
+- if (data.status === 'Active') {
 + if (false) {
 ```
 
