@@ -45,7 +45,7 @@ https://lms.arubanetworks.com/
 
 ### ライセンスマネージャでAOSが選択できないとき
 
-社内PCからだとできなかったが、新RDP環境からだとできた。
+Partner Ready Portal からログインする必要がある。
 
 # MMからMCを操作
 
