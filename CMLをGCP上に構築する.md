@@ -80,8 +80,8 @@ mgmt: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX packets 7348  bytes 5593760 (5.3 MiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-  - CMLのコンソールからnginx.confを編集する
-    - 参考：https://github.com/kou72/Tech-Notea/blob/master/Nginx_リバースプロキシSSLパススルー.md
+- CMLのコンソールからnginx.confを編集する
+  - 参考：https://github.com/kou72/Tech-Notea/blob/master/Nginx_リバースプロキシSSLパススルー.md
 ```
 ##
 # Custom: Reverse Proxy and SSL Passthrough
@@ -100,6 +100,6 @@ stream {
     }
 }
 ```
-  - GCPのファイアウォールの対象ポートを許可する
-  - 以下に接続する
-    - https://CMLのIP:4431
+- GCPのファイアウォールの対象ポートを許可する
+- 以下に接続する
+  - https://CMLのIP:4431
