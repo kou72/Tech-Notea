@@ -14,6 +14,8 @@ Lab内に配置して起動する
 
 ## BIG-IPにインターネット経由でWeb接続する
 
+インターネットに接続した後、CMLのNginxをリバースプロキシとして稼働させて繋ぐ
+
 - BIG-IPをインターネットへ接続させる
   - 「externel connector(クラウドのアイコン)」を設置しBIG-IPと接続する
     - BIG-IP: eth0 (=mgmtポート)
@@ -33,7 +35,7 @@ mgmt: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX packets 7348  bytes 5593760 (5.3 MiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-- CMLのコンソールからnginx.confを編集する
+- CMLのコンソールからnginx.confを編集してリバースプロキシさせる
   - 参考：https://github.com/kou72/Tech-Notea/blob/master/Nginx_リバースプロキシSSLパススルー.md
 ```
 ##
