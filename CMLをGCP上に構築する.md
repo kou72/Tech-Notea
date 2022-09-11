@@ -69,6 +69,9 @@ Lab内に配置して起動する
     - BIG-IP: eth0 (=mgmtポート)
     - externel connector: port
   - BIG-IPにDHCPで付与されたアドレスを確認する
+  - もしくは静的にアドレスを付与する
+    - セグメント: `192.168.255.0/24`
+    - GW: `192.168.255.1`
 ```
 [root@localhost:NO LICENSE:Standalone] config # ifconfig mgmt
 mgmt: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
