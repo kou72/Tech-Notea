@@ -77,6 +77,9 @@ stream {
     }
 }
 ```
+```
+admin@cml-instance:~$ sudo systemctl restart nginx.service
+```
 - CMLのFirewallの対象ポートを許可する
 ```
 admin@cml-instance:~$ sudo firewall-cmd --list-all --permanent
