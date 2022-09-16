@@ -1,7 +1,7 @@
 # Creating A New Node Definition
 
 以下を参考にNodeを追加  
-Creating A New Node Definition
+[Creating A New Node Definition](https://developer.cisco.com/docs/modeling-labs/#!creating-a-new-node-definition)
 
 ## Citrix ADC VPX
 
