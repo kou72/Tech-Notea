@@ -89,5 +89,45 @@ exec update-now
 
 デバック終了
 ```
-diag debug enable 
+diag debug disable
+```
+
+# CLIで静的MGMT接続
+ipアドレス設定
+```
+# config system interface
+(interface) # edit port1
+(port1) # set mode static
+(port1) # set ip 192.168.255.105 255.255.255.0
+(port1) # show
+config system interface
+    edit "port1"
+        set vdom "root"
+        set ip 192.168.255.105 255.255.255.0
+        set allowaccess ping https ssh http fgfm
+        set type physical
+        set snmp-index 1
+    next
+end
+(port1) # end
+```
+
+GW設定
+https://nwengblog.com/fortigate-static/#toc6
+```
+config router static
+    edit 1
+        set dst 0.0.0.0 0.0.0.0
+        set gateway 192.168.255.1
+        set device "port1"
+    next
+end
+```
+
+443へのログインを許可する
+https://raipachi-8888.hatenablog.com/entry/2020/08/11/215840
+```
+config system global
+    set admin-https-pki-required enable
+end
 ```
