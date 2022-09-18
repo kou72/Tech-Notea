@@ -112,7 +112,7 @@ end
 (port1) # end
 ```
 
-GW設定
+GW設定  
 https://nwengblog.com/fortigate-static/#toc6
 ```
 config router static
@@ -124,7 +124,7 @@ config router static
 end
 ```
 
-443へのログインを許可する
+443へのログインを許可する  
 https://raipachi-8888.hatenablog.com/entry/2020/08/11/215840
 ```
 config system global
