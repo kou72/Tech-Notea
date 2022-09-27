@@ -113,6 +113,35 @@ sys global-settings {
 }
 ```
 
+# license.maxcores の差分によりエラーが出るとき
+
+エラーメッセージ
+```
+Modifying license.maxcores to a value other than 2 is not allowed.
+```
+
+原因はこれ  
+https://cdn.f5.com/product/bugtracker/ID675742.html  
+
+UCSを取る前に以下コマンドを投下して、数値を揃える必要がある
+```
+# tmsh modify sys db license.maxcores value 8
+```
+
+リストア時に参照しているのはおそらく以下
+- /config/BigDB.dat
+```
+[License.MaxCores]
+type=integer
+default=0
+min=0
+max=1000
+realm=local
+scf_config=false
+display_name=License.MaxCores
+value=2 #　<---★
+```
+
 
 # config再読み込み
 ```
