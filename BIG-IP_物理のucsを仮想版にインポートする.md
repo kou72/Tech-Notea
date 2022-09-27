@@ -49,36 +49,44 @@ VE版はtrunkが組めないので、その部分だけ削除
 - net vlan インターフェース部分削除
 ---
 - /config/bigip_base.conf
-```
-net stp /Common/cist {
-    trunks {
-        external_trunk {
-            external-path-cost 20000
-            internal-path-cost 20000
-        }
-    }
-    vlans {
-        /Common/external
-    }
+```diff
+net interface 1.0 {
+    lldp-tlvmap 114552
+-   stp-edge-port false
 }
+- net stp /Common/cist {
+-   trunks {
+-       external_trunk {
+-           external-path-cost 20000
+-           internal-path-cost 20000
+-       }
+-   }
+-   vlans {
+-       /Common/external
+-   }
+- }
 net stp-globals {
     config-name 00-01-D7-E4-47-80
+-   mode rstp
 }
-net trunk external_trunk {
-    interfaces {
-        1.1
-        1.2
-    }
-}
+- net trunk external_trunk {
+-   interfaces {
+-       1.1
+-       1.2
+-   }
+- }
 net vlan /Common/external {
-    interfaces {
-        external_trunk { }
-    }
+-   interfaces {
+-       external_trunk { }
+-   }
     tag 4094
 }
 ```
 ↓
 ```
+net interface 1.0 {
+    lldp-tlvmap 114552
+}
 net stp-globals {
     config-name 00-01-D7-E4-47-80
 }
