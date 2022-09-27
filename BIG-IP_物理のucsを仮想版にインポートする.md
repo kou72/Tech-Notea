@@ -164,7 +164,7 @@ https://cdn.f5.com/product/bugtracker/ID639619.html
 - Master Key は揃えているので '/config/bigip/kstore/master' の置き換えは不要
 ```
 # bigstart stop
-# mr /config/bigip/kstore/.unitkey
+# rm /config/bigip/kstore/.unitkey
 # rm -f /var/db/mcpd.bin
 # rm -f /var/db/mcpd.info
 # bigstart start
