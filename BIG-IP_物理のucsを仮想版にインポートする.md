@@ -128,7 +128,7 @@ UCSを取る前に以下コマンドを投下して、数値を揃える必要�
 # tmsh modify sys db license.maxcores value 8
 ```
 
-リストア時に参照しているのはおそらく以下
+もしくは7zipの「開く」機能から、UCSを解凍せずにファイルの中身を編集可能  
 - /config/BigDB.dat
 ```
 [License.MaxCores]
@@ -139,9 +139,8 @@ max=1000
 realm=local
 scf_config=false
 display_name=License.MaxCores
-value=2 #　<---★
+value=2 #　<---追加
 ```
-
 
 # config再読み込み
 ```
