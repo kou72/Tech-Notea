@@ -142,6 +142,27 @@ display_name=License.MaxCores
 value=2 #　<---追加
 ```
 
+# Master key を合わせたのに複合化エラーが出るとき
+エラーメッセージ
+```
+Symmetric Unit Key decrypt failure - decrypt failure
+```
+
+原因はこれ  
+https://cdn.f5.com/product/bugtracker/ID639619.html  
+
+手順に従って実行
+- 仮想版は '/config/bigip/kstore/.unitkey' が無いので、削除でOK
+- Master Key は揃えているので '/config/bigip/kstore/master' の置き換えは不要
+```
+# bigstart stop
+# mr /config/bigip/kstore/.unitkey
+# rm -f /var/db/mcpd.bin
+# rm -f /var/db/mcpd.info
+# bigstart start
+# tmsh load sys config
+```
+
 # config再読み込み
 ```
 tmsh load sys config
