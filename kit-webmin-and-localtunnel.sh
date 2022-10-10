@@ -1,13 +1,13 @@
 #!/bin/bash
 # ubuntu に webmin と localtunnel をインストールするスクリプト　以下コマンドで実行
-# curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -s -x
+# curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -x
 
 # localtunnel で使うサブドメインを入力する
 echo "subdomain is: "
 while read subdomain
 do
   case $subdomain in
-    '' ) echo -n "subdomain is: ";;
+    '' ) echo -n "subdomain is: ";
     * ) break;;
   esac
 done
@@ -53,6 +53,8 @@ cat << "EOS" > localtunnel.sh
 #!/bin/bash
 sudo node ~/localtunnel/localtunnel.js
 EOS
+
+sudo chmod a+x ~/localtunnel/localtunnel.js
 
 # 権限の無いファイルに cat で出力するため sudo tee を連結
 cat << EOS | sudo tee /etc/systemd/system/localtunnel.service
