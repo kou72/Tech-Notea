@@ -7,7 +7,7 @@ echo "subdomain is: "
 while read subdomain
 do
   case $subdomain in
-    '' ) echo -n "subdomain is: ";
+    '' ) echo -n "subdomain is: ";;
     * ) break;;
   esac
 done
