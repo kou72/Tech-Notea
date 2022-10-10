@@ -39,7 +39,7 @@ EOS
 # enable localtunnel.d
 echo "\n# enable localtunnel.d\n"
 
-cat << "EOS" > localtunnel.sh
+cat << EOS > localtunnel.sh
 #!/bin/bash
 sudo node $HOME/localtunnel/localtunnel.js
 EOS
