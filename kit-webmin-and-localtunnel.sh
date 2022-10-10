@@ -1,4 +1,6 @@
 #!/bin/bash
+# run command
+# curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -s -x
 
 # install webmin
 # echo "\n# install webmin"
