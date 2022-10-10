@@ -17,7 +17,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 # source ~/.nvm/nvm.sh
 # source ~/.profile
 . ~/.bashrc
-. $NVM_HOME/nvm.sh
+. ~/.nvm/nvm.sh
 nvm install --lts
 
 # install localtunnel
