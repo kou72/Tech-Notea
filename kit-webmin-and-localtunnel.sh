@@ -62,3 +62,4 @@ EOS
 
 sudo systemctl enable localtunnel
 sudo systemctl start localtunnel
+sudo systemctl status localtunnel
