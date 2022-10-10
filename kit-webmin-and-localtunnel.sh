@@ -1,5 +1,5 @@
 #!/bin/bash
-# run command is
+# ubuntu に webmin と localtunnel を
 # curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -s -x
 
 # install webmin
@@ -44,7 +44,7 @@ cat << "EOS" > localtunnel.sh
 sudo node ~/localtunnel/localtunnel.js
 EOS
 
-sudo cat << "EOS" > /etc/systemd/system/localtunnel.service
+cat << "EOS" | sudo tee /etc/systemd/system/localtunnel.service
 [Unit]
 Description = localtunnel daemon
 
