@@ -44,6 +44,7 @@ cat << "EOS" > localtunnel.sh
 sudo node ~/localtunnel/localtunnel.js
 EOS
 
+# 権限の無いファイルに cat で出力するため sudo tee を連結
 cat << "EOS" | sudo tee /etc/systemd/system/localtunnel.service
 [Unit]
 Description = localtunnel daemon
