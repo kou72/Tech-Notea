@@ -3,7 +3,7 @@
 # curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -s -x
 
 # install webmin
-# echo "\n# install webmin"
+# echo "\n# install webmin\n"
 # mkdir ~/webmin
 # cd ~/webmin
 # sudo apt update
@@ -11,18 +11,31 @@
 # wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
 # sudo dpkg --install webmin_2.000_all.deb
 
-# install nodejs on nvm
-echo "\n# install nodejs on nvm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-# source ~/.nvm/nvm.sh
-# source ~/.profile
-. ~/.bashrc
-. ~/.nvm/nvm.sh
-nvm install --lts
+# install node16
+echo "\n# install nodejs on nvm\n"
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 # install localtunnel
-#mkdir ~/localtunnel
-#cd ~/localtunnel
+echo "\n# install localtunnel\n"
+mkdir ~/localtunnel
+cd ~/localtunnel
+sudo npm install localtunnel
 
-#sudo npm install localtunnel
+cat << EOS > localtunnel.js
+const localtunnel = require('localtunnel');
+
+(async () => {
+  const tunnel = await localtunnel({ 
+    port: 10000,
+    subdomain: "skcml2webmin"
+    local_https: true,
+    allow_invalid_cert: true,
+  });
+  console.log(`Open ${tunnel.url}.`);
+})();
+EOS
+
+node localtunnel.js
+
 #lt --port 10000 --subdomain skcml2webmin
