@@ -11,6 +11,13 @@ sudo apt install -y libnet-ssleay-perl libauthen-pam-perl libio-pty-perl unzip
 wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
 sudo dpkg --install webmin_2.000_all.deb
 
+# setting webmin
+echo "\n# setting webmin\n"
+sudo sed -i s/port=10000/port=443/ /etc/webmin/miniserv.conf
+sudo sed -i s/listen=10000/listen=443/ /etc/webmin/miniserv.conf
+sudo echo referers=$1.loca.lt. | sudo tee -a /etc/webmin/config
+sudo systemctl restart webmin.service
+
 # install node16
 echo "\n# install nodejs on nvm\n"
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -35,13 +42,6 @@ const localtunnel = require('localtunnel');
   console.log(\`Open \${tunnel.url}.\`);
 })();
 EOS
-
-# setting webmin
-echo "\n# setting webmin\n"
-sudo sed -i s/port=10000/port=443/ /etc/webmin/miniserv.conf
-sudo sed -i s/listen=10000/listen=443/ /etc/webmin/miniserv.conf
-sudo echo referers=$1.loca.lt. | sudo tee -a /etc/webmin/config
-sudo systemctl restart webmin.service
 
 # enable localtunnel.d
 echo "\n# enable localtunnel.d\n"
