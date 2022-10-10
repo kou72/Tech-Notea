@@ -2,23 +2,18 @@
 
 # install webmin
 echo "\n# install webmin"
-echo "\n## mkdir webmin\n"
 mkdir ~/webmin
 cd ~/webmin
-
-echo "\n## sudo apt update\n"
 sudo apt update
-
-echo "\n## sudo apt install packages\n"
 sudo apt install -y libnet-ssleay-perl libauthen-pam-perl libio-pty-perl unzip
-
 wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
 sudo dpkg --install webmin_2.000_all.deb
 
 # install nodejs on nvm
-#curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-#source ~/.bashrc
-#nvm install --lts
+echo "\n# install nodejs on nvm"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+source ~/.bashrc
+nvm install --lts
 
 # install localtunnel
 #mkdir ~/localtunnel
