@@ -14,9 +14,9 @@
 # install nodejs on nvm
 echo "\n# install nodejs on nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-. ~/.nvm/nvm.sh
-. ~/.profile
-. ~/.bashrc
+source ~/.nvm/nvm.sh
+source ~/.profile
+source ~/.bashrc
 nvm install --lts
 
 # install localtunnel
