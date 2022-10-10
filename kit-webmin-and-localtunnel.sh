@@ -41,7 +41,7 @@ echo "\n# enable localtunnel.d\n"
 
 cat << "EOS" > localtunnel.sh
 #!/bin/bash
-sudo node ~/localtunnel/localtunnel.js
+sudo node $HOME/localtunnel/localtunnel.js
 EOS
 
 sudo chmod a+x ~/localtunnel/localtunnel.sh
