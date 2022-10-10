@@ -44,7 +44,7 @@ cat << "EOS" > localtunnel.sh
 sudo node ~/localtunnel/localtunnel.js
 EOS
 
-cat << "EOS" > /etc/systemd/system/localtunnel.service
+sudo cat << "EOS" > /etc/systemd/system/localtunnel.service
 [Unit]
 Description = localtunnel daemon
 
