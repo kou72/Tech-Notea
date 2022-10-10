@@ -2,6 +2,10 @@
 # ubuntu に webmin と localtunnel をインストールするスクリプト　以下コマンドで実行
 # curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -s -x
 
+# localtunnel で使うサブドメインを入力する
+echo -n "subdomain is: "
+read SUBDOMAIN
+
 # install webmin
 echo "\n# install webmin\n"
 mkdir ~/webmin
@@ -22,17 +26,17 @@ mkdir ~/localtunnel
 cd ~/localtunnel
 sudo npm install localtunnel
 
-cat << "EOS" > localtunnel.js
+cat << EOS > localtunnel.js
 const localtunnel = require('localtunnel');
 
 (async () => {
   const tunnel = await localtunnel({ 
     port: 10000,
-    subdomain: "skcml2webmin",
+    subdomain: "$SUBDOMAIN",
     local_https: true,
     allow_invalid_cert: true,
   });
-  console.log(`Open ${tunnel.url}.`);
+  console.log(\`Open \${tunnel.url}.\`);
 })();
 EOS
 
@@ -45,12 +49,12 @@ sudo node ~/localtunnel/localtunnel.js
 EOS
 
 # 権限の無いファイルに cat で出力するため sudo tee を連結
-cat << "EOS" | sudo tee /etc/systemd/system/localtunnel.service
+cat << EOS | sudo tee /etc/systemd/system/localtunnel.service
 [Unit]
 Description = localtunnel daemon
 
 [Service]
-ExecStart = ~/localtunnel/localtunnel.sh
+ExecStart = $HOME/localtunnel/localtunnel.sh
 Restart = always
 Type = simple
 
