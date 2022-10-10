@@ -1,5 +1,5 @@
 #!/bin/bash
-# ubuntu に webmin と localtunnel を
+# ubuntu に webmin と localtunnel をインストールするスクリプト　以下コマンドで実行
 # curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -s -x
 
 # install webmin
