@@ -1,16 +1,6 @@
 #!/bin/bash
-# ubuntu に webmin と localtunnel をインストールするスクリプト　以下コマンドで実行
-# curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -x
-
-# localtunnel で使うサブドメインを入力する
-echo "subdomain is: "
-while read subdomain
-do
-  case $subdomain in
-    '' ) echo -n "subdomain is: ";;
-    * ) break;;
-  esac
-done
+# ubuntu に webmin と localtunnel をインストールするスクリプト 以下コマンドで実行(引数としてサブドメインとなる任意の文字列を指定すること)
+# curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -x -s 'skcml2webmin'
 
 # install webmin
 echo "\n# install webmin\n"
@@ -38,7 +28,7 @@ const localtunnel = require('localtunnel');
 (async () => {
   const tunnel = await localtunnel({ 
     port: 10000,
-    subdomain: "$subdomain",
+    subdomain: "$1",
     local_https: true,
     allow_invalid_cert: true,
   });
