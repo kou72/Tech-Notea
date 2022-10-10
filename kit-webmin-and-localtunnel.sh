@@ -22,7 +22,7 @@ mkdir ~/localtunnel
 cd ~/localtunnel
 sudo npm install localtunnel
 
-cat << EOS > localtunnel.js
+cat << "EOS" > localtunnel.js
 const localtunnel = require('localtunnel');
 
 (async () => {
