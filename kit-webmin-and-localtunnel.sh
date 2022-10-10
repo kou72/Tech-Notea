@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # install webmin
-echo "\n# install webmin"
-mkdir ~/webmin
-cd ~/webmin
-sudo apt update
-sudo apt install -y libnet-ssleay-perl libauthen-pam-perl libio-pty-perl unzip
-wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
-sudo dpkg --install webmin_2.000_all.deb
+# echo "\n# install webmin"
+# mkdir ~/webmin
+# cd ~/webmin
+# sudo apt update
+# sudo apt install -y libnet-ssleay-perl libauthen-pam-perl libio-pty-perl unzip
+# wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
+# sudo dpkg --install webmin_2.000_all.deb
 
 # install nodejs on nvm
 echo "\n# install nodejs on nvm"
