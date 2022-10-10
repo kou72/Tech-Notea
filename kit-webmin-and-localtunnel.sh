@@ -3,8 +3,14 @@
 # curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -s -x
 
 # localtunnel で使うサブドメインを入力する
-echo -n "subdomain is: "
-read SUBDOMAIN
+echo "subdomain is: "
+while read subdomain
+do
+  case $subdomain in
+    '' ) echo -n "subdomain is: ";;
+    * ) break;;
+  esac
+done
 
 # install webmin
 echo "\n# install webmin\n"
@@ -32,7 +38,7 @@ const localtunnel = require('localtunnel');
 (async () => {
   const tunnel = await localtunnel({ 
     port: 10000,
-    subdomain: "$SUBDOMAIN",
+    subdomain: "$subdomain",
     local_https: true,
     allow_invalid_cert: true,
   });
