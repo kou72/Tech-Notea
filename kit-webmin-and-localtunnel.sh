@@ -1,26 +1,26 @@
 #!/bin/bash
 
 # install webmin
-echo " # install webmin "
-echo " ## mkdir webmin"
+echo -e "\n# install webmin"
+echo -e "\n## mkdir webmin\n"
 mkdir ~/webmin
 cd ~/webmin
 
-echo "## sudo apt update"
+echo -e "\n## sudo apt update\n"
 sudo apt update
 
-echo "## sudo apt install packages"
+echo -e "\n## sudo apt install packages\n"
 PACKAGES=(
-perl
-libnet-ssleay-perl
-openssl
-libauthen-pam-perl
-libpam-runtime
-libio-pty-perl
-apt-show-versions
-python
-unzip
-shared-mime-info
+perl 
+libnet-ssleay-perl 
+openssl 
+libauthen-pam-perl 
+libpam-runtime 
+libio-pty-perl 
+apt-show-versions 
+python 
+unzip 
+shared-mime-info 
 )
 
 for PACKAGE in ${PACKAGES[@]};
