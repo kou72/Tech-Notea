@@ -36,4 +36,26 @@ const localtunnel = require('localtunnel');
 })();
 EOS
 
-node localtunnel.js
+# enable localtunnel.d
+echo "\n# enable localtunnel.d\n"
+
+cat << "EOS" > localtunnel.sh
+#!/bin/bash
+sudo node ~/localtunnel/localtunnel.js
+EOS
+
+cat << "EOS" > /etc/systemd/system/localtunnel.service
+[Unit]
+Description = localtunnel daemon
+
+[Service]
+ExecStart = ~/localtunnel/localtunnel.sh
+Restart = always
+Type = simple
+
+[Install]
+WantedBy = multi-user.target
+EOS
+
+sudo systemctl enable localtunnel
+sudo systemctl start localtunnel
