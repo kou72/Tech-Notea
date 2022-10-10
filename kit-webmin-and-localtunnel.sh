@@ -28,7 +28,7 @@ const localtunnel = require('localtunnel');
 (async () => {
   const tunnel = await localtunnel({ 
     port: 10000,
-    subdomain: "skcml2webmin"
+    subdomain: "skcml2webmin",
     local_https: true,
     allow_invalid_cert: true,
   });
