@@ -1,32 +1,16 @@
 #!/bin/bash
 
 # install webmin
-echo -e "\n# install webmin"
-echo -e "\n## mkdir webmin\n"
+echo "\n# install webmin"
+echo "\n## mkdir webmin\n"
 mkdir ~/webmin
 cd ~/webmin
 
-echo -e "\n## sudo apt update\n"
+echo "\n## sudo apt update\n"
 sudo apt update
 
-echo -e "\n## sudo apt install packages\n"
-PACKAGES=(
-perl 
-libnet-ssleay-perl 
-openssl 
-libauthen-pam-perl 
-libpam-runtime 
-libio-pty-perl 
-apt-show-versions 
-python 
-unzip 
-shared-mime-info 
-)
-
-for PACKAGE in ${PACKAGES[@]};
-do
-  sudo apt install -y $PACKAGE
-done
+echo "\n## sudo apt install packages\n"
+sudo apt install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python unzip shared-mime-info
 
 wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
 sudo dpkg --install webmin_2.000_all.deb
