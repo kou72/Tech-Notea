@@ -3,13 +3,13 @@
 # curl -sf https://raw.githubusercontent.com/kou72/Tech-Notea/master/kit-webmin-and-localtunnel.sh | sh -s -x
 
 # install webmin
-# echo "\n# install webmin\n"
-# mkdir ~/webmin
-# cd ~/webmin
-# sudo apt update
-# sudo apt install -y libnet-ssleay-perl libauthen-pam-perl libio-pty-perl unzip
-# wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
-# sudo dpkg --install webmin_2.000_all.deb
+echo "\n# install webmin\n"
+mkdir ~/webmin
+cd ~/webmin
+sudo apt update
+sudo apt install -y libnet-ssleay-perl libauthen-pam-perl libio-pty-perl unzip
+wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
+sudo dpkg --install webmin_2.000_all.deb
 
 # install node16
 echo "\n# install nodejs on nvm\n"
@@ -37,5 +37,3 @@ const localtunnel = require('localtunnel');
 EOS
 
 node localtunnel.js
-
-#lt --port 10000 --subdomain skcml2webmin
