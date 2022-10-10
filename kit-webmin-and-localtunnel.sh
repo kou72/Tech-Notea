@@ -27,7 +27,7 @@ const localtunnel = require('localtunnel');
 
 (async () => {
   const tunnel = await localtunnel({ 
-    port: 10000,
+    port: 443,
     subdomain: "$1",
     local_https: true,
     allow_invalid_cert: true,
@@ -35,6 +35,12 @@ const localtunnel = require('localtunnel');
   console.log(\`Open \${tunnel.url}.\`);
 })();
 EOS
+
+# setting webmin
+echo "\n# setting webmin\n"
+sudo sed -i s/port=10000/port=443/ /etc/webmin/miniserv.conf
+sudo sed -i s/listen=10000/listen=443/ /etc/webmin/miniserv.conf
+sudo echo referers=$1.loca.lt. | sudo tee -a /etc/webmin/config
 
 # enable localtunnel.d
 echo "\n# enable localtunnel.d\n"
