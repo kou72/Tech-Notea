@@ -10,7 +10,7 @@ echo "\n## sudo apt update\n"
 sudo apt update
 
 echo "\n## sudo apt install packages\n"
-sudo apt install -y perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python unzip shared-mime-info
+sudo apt install -y libnet-ssleay-perl libauthen-pam-perl libio-pty-perl unzip
 
 wget http://prdownloads.sourceforge.net/webadmin/webmin_2.000_all.deb
 sudo dpkg --install webmin_2.000_all.deb
