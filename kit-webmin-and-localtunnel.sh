@@ -12,6 +12,8 @@
 # install nodejs on nvm
 echo "\n# install nodejs on nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+. ~/.nvm/nvm.sh
+. ~/.profile
 . ~/.bashrc
 sudo nvm install --lts
 
