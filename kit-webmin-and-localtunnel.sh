@@ -12,7 +12,7 @@ sudo dpkg --install webmin_2.000_all.deb
 # install nodejs on nvm
 echo "\n# install nodejs on nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-source ~/.bashrc
+sudo . ~/.bashrc
 nvm install --lts
 
 # install localtunnel
