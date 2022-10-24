@@ -39,7 +39,7 @@ const localtunnel = require('localtunnel');
     local_https: true,
     allow_invalid_cert: true,
   });
-  console.log(\`Open \${tunnel.url}.\`);
+  console.log(\`\nOpen \${tunnel.url}.\`);
 })();
 EOS
 
