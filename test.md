@@ -258,13 +258,15 @@ skinparam ArrowThickness 0
 skinparam ArrowColor white
 
 rectangle ユーザーストーリー {
-  file アカウントを新規作成する as signup
-  file ログインする as login
-  file ログアウトする as logout
+  file イベントページからユーザーのプロフィールに移動する as trans
+  file プロフィールを確認する as profil
+  file 過去の参加イベントを確認する as old
+  file 気になったユーザーをフォローする as follow
 }
 
-signup -[#black;thickness=1]right-> login
-login -[#black;thickness=1]right-> logout
+trans -[#black;thickness=1]right-> profil
+profil -[#black;thickness=1]right-> old
+old -[#black;thickness=1]right-> follow
 
 @enduml
 ```
