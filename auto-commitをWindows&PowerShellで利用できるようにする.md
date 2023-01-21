@@ -14,15 +14,17 @@ Windowsだとインストーラーが使えないので、手動でバイナリ�
 
 - `C:\Windows\System32\` など
 - `auto-commit.exe` にRenameもしておく
-- 配置後再起動する
+
 
 ## 3. APIキーを環境変数に設定する
 
-- https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.3
-- 例）$Env:OPENAI_API_KEY = "sk-XXXXXXXX"
+- システムの詳細設定 > 環境変数 > システム環境変数 > 新規
+  - 変数名：OPENAI_API_KEY
+  - 変数値：sk-XXXXXXXX
 - APIキーはここで取得
   - https://beta.openai.com/account/api-keys
 
-## 4. PowerShellから使う
+## 4. 再起動する
 
+- 環境変数を反映するためPCを再起動する
 - `git add` してる状態で `auto-commit` を打ち込むと使える
