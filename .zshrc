@@ -18,7 +18,18 @@ fpath=(~/.zsh $fpath)
 ## curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 
+# suggests commands
+## git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# history
+export HISTFILE=${HOME}/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=100000
+setopt hist_ignore_dups
+setopt EXTENDED_HISTORY
