@@ -8,8 +8,21 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM=auto
 
-setopt PROMPT_SUBST ; PS1='
-%F{green}%~%f %F{cyan}$(__git_ps1 "(%s)")%f
+setopt PROMPT_SUBST
+
+function git_color() {
+  local git_info="$(__git_ps1 "%s")"
+  if [[ $git_info == *"%"* ]]; then
+    echo '%F{red}'
+  elif [[ $git_info == *"+"* ]]; then
+    echo '%F{green}'
+  else
+    echo '%F{cyan}'
+  fi
+}
+
+PS1='
+%F{magenta}%~%f %F{yellow}$(__git_ps1 "[")%f$(git_color)$(__git_ps1 "%s")%f%F{yellow}$(__git_ps1 "]")%f
 \$ '
 
 ## curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
