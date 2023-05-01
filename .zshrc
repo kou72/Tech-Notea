@@ -3,16 +3,20 @@
 ## curl -o ~/.zsh/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 source ~/.zsh/git-prompt.sh
 
+# addされていない変更を「*」commitされていない変更を「+」で示す
 GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWSTASHSTATE=true
+# addされていない新規ファイルの存在を「%」で示す
 GIT_PS1_SHOWUNTRACKEDFILES=true
+# stashがある場合は「$」で示す
+unset GIT_PS1_SHOWSTASHSTATE
+# upstreamと同期「=」進んでいる「>」遅れている「<」で示す
 GIT_PS1_SHOWUPSTREAM=auto
 
 setopt PROMPT_SUBST
 
 function git_color() {
   local git_info="$(__git_ps1 "%s")"
-  if [[ $git_info == *"%"* ]]; then
+  if [[ $git_info == *"%"* ]] || [[ $git_info == *"*"* ]]; then
     echo '%F{red}'
   elif [[ $git_info == *"+"* ]]; then
     echo '%F{green}'
