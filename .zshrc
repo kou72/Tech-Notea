@@ -27,7 +27,7 @@ function git_color() {
 
 PS1='
 %F{magenta}%~%f %F{yellow}$(__git_ps1 "[")%f$(git_color)$(__git_ps1 "%s")%f%F{yellow}$(__git_ps1 "]")%f
-\$ '
+> '
 
 ## curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
 fpath=(~/.zsh $fpath)
@@ -48,5 +48,6 @@ alias l='ls -CF'
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
-setopt hist_ignore_dups
-setopt EXTENDED_HISTORY
+setopt hist_ignore_dups # 連続する重複コマンドを無視し、履歴に1つだけ保存する
+setopt EXTENDED_HISTORY # 実行時刻とコマンドの実行時間も履歴ファイルに記録する
+setopt share_history # 複数のZshセッション間で履歴を共有する
