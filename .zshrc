@@ -26,8 +26,8 @@ function git_color() {
 }
 
 PS1='
-%F{magenta}%~%f %F{yellow}$(__git_ps1 "[")%f$(git_color)$(__git_ps1 "%s")%f%F{yellow}$(__git_ps1 "]")%f
-> '
+%F{blue}%~%f %F{yellow}$(__git_ps1 "[")%f$(git_color)$(__git_ps1 "%s")%f%F{yellow}$(__git_ps1 "]")%f
+\$ '
 
 ## curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
 fpath=(~/.zsh $fpath)
