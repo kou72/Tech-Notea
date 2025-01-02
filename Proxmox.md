@@ -1,3 +1,48 @@
+# インストール後に初期化スクリプト実行
+
+- enterprise -> no-subscription にリポジトリ変更
+- subscription のナビゲーションをオフ
+- ※ HAの無効化が案内されるが実行しないようにする
+
+https://community-scripts.github.io/ProxmoxVE/scripts?id=post-pve-install
+
+```
+    ____ _    ________   ____             __     ____           __        ____
+   / __ \ |  / / ____/  / __ \____  _____/ /_   /  _/___  _____/ /_____ _/ / /
+  / /_/ / | / / __/    / /_/ / __ \/ ___/ __/   / // __ \/ ___/ __/ __ `/ / /
+ / ____/| |/ / /___   / ____/ /_/ (__  ) /_   _/ // / / (__  ) /_/ /_/ / / /
+/_/     |___/_____/  /_/    \____/____/\__/  /___/_/ /_/____/\__/\__,_/_/_/
+
+ ✓ Corrected Proxmox VE Sources
+ ✓ Disabled 'pve-enterprise' repository
+ ✓ Disabled 'pve-enterprise' repository
+ ✓ Enabled 'pve-no-subscription' repository
+ ✓ Enabled 'pve-no-subscription' repository
+ ✓ Corrected 'ceph package repositories'
+ ✓ Added 'pvetest' repository
+ ✓ Disabled subscription nag (Delete browser cache)
+ ✗ Selected no to Disabling high availability <-- HAを無効化だけ実行しないようにする
+ ✓ Updated Proxmox VE
+ ✓ Completed Post Install Routines
+```
+
+# Ceph用 Raspi Proxmox 構築
+
+手順に従って実行
+
+https://www.bachmann-lan.de/proxmox-8-auf-dem-raspberry-pi-4-installieren/
+
+Cephの最新バージョンを使うためにリポジトリを変更する
+
+- /etc/apt/sources.list.d/ceph.list
+```diff
+- deb http://download.proxmox.com/debian/ceph-reef bookworm no-subscription
++ deb https://mirrors.apqa.cn/proxmox/debian/pve bookworm ceph-reef
+```
+
+---
+以下内容は古い（Proxmox VE Helper-Scripts の Proxmox VE Post Install で代用可能）
+
 # APTリポジトリの設定
 
 Proxmoxが提供しているフリーのアップデートリポジトリを追加します。
