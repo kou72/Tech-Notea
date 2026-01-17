@@ -40,6 +40,12 @@ Cephの最新バージョンを使うためにリポジトリを変更する
 + deb https://mirrors.apqa.cn/proxmox/debian/pve bookworm ceph-reef
 ```
 
+# Vlan設定
+
+<img width="1697" height="537" alt="image" src="https://github.com/user-attachments/assets/a894d669-7cc6-411a-b4f3-a7f42b10379c" />
+<img width="614" height="299" alt="image" src="https://github.com/user-attachments/assets/1cb2c8f9-68bd-4926-b874-3e05a3c73289" />
+<img width="612" height="262" alt="image" src="https://github.com/user-attachments/assets/bb7a2718-f743-4c2a-82ec-01ab1e7696f2" />
+
 ---
 以下内容は古い（Proxmox VE Helper-Scripts の Proxmox VE Post Install で代用可能）
 
