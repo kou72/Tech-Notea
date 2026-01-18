@@ -46,6 +46,10 @@ Cephの最新バージョンを使うためにリポジトリを変更する
 <img width="614" height="299" alt="image" src="https://github.com/user-attachments/assets/1cb2c8f9-68bd-4926-b874-3e05a3c73289" />
 <img width="612" height="262" alt="image" src="https://github.com/user-attachments/assets/bb7a2718-f743-4c2a-82ec-01ab1e7696f2" />
 
+# Windows Server の作成
+
+https://qiita.com/Bacalhau/items/e74af3bd39b51516e151
+
 ---
 以下内容は古い（Proxmox VE Helper-Scripts の Proxmox VE Post Install で代用可能）
 
